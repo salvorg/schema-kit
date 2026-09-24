@@ -111,7 +111,7 @@ const { jsonSchema, xsd, checksum } = unwrap(
 
 `SchemaDocument`: `root` — объект или массив объектов (тело-список), `definitions` для переиспользуемых
 узлов, `xml` (корневой элемент, `targetNamespace`, обёртки-конверты), `model` (координата
-канонической модели), `locales`/`defaultLocale` (по умолчанию `ru`, `ky`, `en`).
+канонической модели), `locales`/`defaultLocale` (по умолчанию `en`).
 
 Узлы (`kind`): `string` (format, min/maxLength, pattern в ECMA-262), `integer`/`number` (включающие и
 исключающие границы), `boolean`, `array` (items, min/maxItems, uniqueItems, optionGroups), `object`

@@ -3,6 +3,7 @@ import { equals, filled, oneOf, type SchemaDocument } from '../../index.js';
 export const REGISTRATION: SchemaDocument = {
   id: 'urn:example:schema:sole-proprietor-registration:1.0.0',
   title: { ru: 'Регистрация ИП', ky: 'ЖИни каттоо', en: 'Sole proprietor registration' },
+  locales: ['ru', 'ky', 'en'],
   model: { code: 'SOLE_PROPRIETOR', version: '1.0.0' },
   xml: {
     rootElement: 'registerRequest',

@@ -118,6 +118,16 @@ describe('toJsonSchema', () => {
   });
 });
 
+describe('defineSchema', () => {
+  it('defaults to English when no locales are given', () => {
+    const doc = ok(defineSchema({ root: { kind: 'object', properties: [] } }));
+    expect(doc.locales).toEqual(['en']);
+    expect(doc.defaultLocale).toBe('en');
+    const parsed = ok(fromJsonSchema({ type: 'object', title: 'Order', properties: {} }));
+    expect(parsed.title).toEqual({ en: 'Order' });
+  });
+});
+
 describe('fromJsonSchema', () => {
   it('round-trips a canonical document to the same model and the same bytes', () => {
     const schema = ok(toJsonSchema(REGISTRATION));

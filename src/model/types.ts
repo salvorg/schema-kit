@@ -10,7 +10,7 @@ import {
 export type LocalizedText = Readonly<Record<string, string>>;
 
 export const LOCALE_PATTERN = /^[a-z]{2,3}(-[A-Za-z0-9]{1,8})*$/;
-export const DEFAULT_LOCALES = ['ru', 'ky', 'en'] as const;
+export const DEFAULT_LOCALES = ['en'] as const;
 
 export const localizedTextSchema = z.record(z.string().regex(LOCALE_PATTERN), z.string());
 
@@ -210,7 +210,7 @@ export interface SchemaDocument {
   readonly id?: string;
   readonly title?: LocalizedText;
   readonly description?: LocalizedText;
-  /** Defaults to `ru`, `ky`, `en`. */
+  /** Defaults to `en`. */
   readonly locales?: readonly string[];
   /** Defaults to the first locale. */
   readonly defaultLocale?: string;
