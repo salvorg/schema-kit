@@ -1,0 +1,67 @@
+{
+  "name": "schema-kit",
+  "version": "0.1.0",
+  "description": "Canonical JSON Schema 2020-12 and XSD 1.1 from constructor input: approved x-* annotations, format conversion, materialized builds.",
+  "keywords": [
+    "json-schema",
+    "2020-12",
+    "xsd",
+    "xsd-1.1",
+    "canonical",
+    "form-builder"
+  ],
+  "license": "UNLICENSED",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist",
+    "src",
+    "!src/__tests__",
+    "README.md"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "rm -rf dist && tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "coverage": "vitest run --coverage",
+    "format": "prettier --no-error-on-unmatched-pattern --write \"{src,scripts}/**/*.{ts,mjs}\" README.md",
+    "format:check": "prettier --no-error-on-unmatched-pattern --check \"{src,scripts}/**/*.{ts,mjs}\" README.md",
+    "smoke": "node scripts/smoke.mjs",
+    "prepublishOnly": "npm run typecheck && npm run test && npm run build && npm run smoke",
+    "prepare": "npm run build"
+  },
+  "dependencies": {
+    "zod": "^4.6.5"
+  },
+  "devDependencies": {
+    "@types/node": "^24.13.6",
+    "@vitest/coverage-v8": "^3.2.7",
+    "@xmldom/xmldom": "^0.9.12",
+    "ajv": "^8.20.0",
+    "prettier": "^3.9.9",
+    "typescript": "~5.9.2",
+    "vitest": "^3.2.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/salvorg/schema-kit.git"
+  },
+  "homepage": "https://github.com/salvorg/schema-kit#readme",
+  "bugs": {
+    "url": "https://github.com/salvorg/schema-kit/issues"
+  }
+}
