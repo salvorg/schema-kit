@@ -42,6 +42,8 @@
     "format:check": "prettier --no-error-on-unmatched-pattern --check \"{src,scripts}/**/*.{ts,mjs}\" README.md",
     "smoke": "node scripts/smoke.mjs",
     "prepublishOnly": "npm run typecheck && npm run test && npm run build && npm run smoke",
+    "test:xsd11": "vitest run --config vitest.xsd11.config.ts",
+    "fetch:xsd11": "sh scripts/fetch-xsd11.sh",
     "prepare": "npm run build"
   },
   "dependencies": {
